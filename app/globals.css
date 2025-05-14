@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    /* Updated primary color to green */
+    --primary: 142 70% 29%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 142 30% 96%;
+    --secondary-foreground: 142 70% 29%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 142 30% 96%;
+    --accent-foreground: 142 70% 29%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 70% 29%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    /* Updated primary color to green for dark mode */
+    --primary: 142 70% 40%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142 70% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom button styles */
+.btn-green {
+  @apply bg-brand-green-600 hover:bg-brand-green-700 text-white;
+}
+
+.btn-green-outline {
+  @apply border-2 border-brand-green-600 text-brand-green-600 hover:bg-brand-green-50;
+}
+
+.btn-green-ghost {
+  @apply text-brand-green-600 hover:bg-brand-green-50 hover:text-brand-green-700;
+}
+
+/* Custom card styles */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* Custom badge styles */
+.badge-green {
+  @apply bg-brand-green-100 text-brand-green-800 dark:bg-brand-green-900 dark:text-brand-green-100;
+}
+
+.badge-outline-green {
+  @apply border border-brand-green-600 text-brand-green-600;
+}
