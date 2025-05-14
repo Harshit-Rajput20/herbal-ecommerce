@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     generator: 'v0.dev'
 }
 
+// Add dynamic rendering configuration
+export const dynamic = "force-dynamic"
+
 export default async function RootLayout({
   children,
 }: Readonly<{

@@ -3,6 +3,8 @@ import { redirect } from "next/navigation"
 import { createServerSupabaseClient } from "@/lib/supabase/server"
 import AccountSidebar from "@/components/account-sidebar"
 
+export const dynamic = "force-dynamic"
+
 export default async function AccountLayout({
   children,
 }: {

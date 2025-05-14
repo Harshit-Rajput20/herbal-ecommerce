@@ -27,45 +27,53 @@ interface ProductCardProps {
   product: Product
 }
 
-// Function to get placeholder image based on category
+// Function to get placeholder image based on category - using local images
 const getCategoryImage = (category = "", productName = "") => {
   const normalizedCategory = category.toLowerCase()
 
   // Product-specific images for common products
   if (productName.toLowerCase().includes("heart health drops")) {
-    return "https://images.unsplash.com/photo-1559149251-e9a1dc89f549?q=80&w=500&auto=format&fit=crop"
+    return "/images/products/heart-health-drops.jpg"
   }
 
   if (productName.toLowerCase().includes("liver care")) {
-    return "https://images.unsplash.com/photo-1626963781637-1866da275ec4?q=80&w=500&auto=format&fit=crop"
+    return "/images/products/liver-care-tablets.jpg"
   }
 
   if (productName.toLowerCase().includes("women's health")) {
-    return "https://images.unsplash.com/photo-1577086664693-894d8405334a?q=80&w=500&auto=format&fit=crop"
+    return "/images/products/womens-health-supplement.jpg"
   }
 
-  // Use reliable image URLs based on category
+  if (productName.toLowerCase().includes("face wash")) {
+    return "/images/products/face-wash.jpg"
+  }
+
+  if (productName.toLowerCase().includes("herbal tea premix")) {
+    return "/images/products/herbal-tea-premix.jpg"
+  }
+
+  // Use local image paths based on category
   switch (normalizedCategory) {
     case "tea":
-      return "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?q=80&w=500&auto=format&fit=crop"
+      return "/images/products/herbal-tea.jpg"
     case "supplements":
-      return "https://images.unsplash.com/photo-1577086664693-894d8405334a?q=80&w=500&auto=format&fit=crop"
+      return "/images/products/supplements.jpg"
     case "tablets":
-      return "https://images.unsplash.com/photo-1626963781637-1866da275ec4?q=80&w=500&auto=format&fit=crop"
+      return "/images/products/tablets.jpg"
     case "skincare":
-      return "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=500&auto=format&fit=crop"
+      return "/images/products/skincare.jpg"
     case "haircare":
-      return "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?q=80&w=500&auto=format&fit=crop"
+      return "/images/products/haircare.jpg"
     case "drops":
-      return "https://images.unsplash.com/photo-1559149251-e9a1dc89f549?q=80&w=500&auto=format&fit=crop"
+      return "/images/products/drops.jpg"
     case "syrups":
-      return "https://images.unsplash.com/photo-1543362906-acfc16c67564?q=80&w=500&auto=format&fit=crop"
+      return "/images/products/syrups.jpg"
     case "topicals":
-      return "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?q=80&w=500&auto=format&fit=crop"
+      return "/images/products/topicals.jpg"
     case "oils":
-      return "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?q=80&w=500&auto=format&fit=crop"
+      return "/images/products/essential-oils.jpg"
     default:
-      return "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?q=80&w=500&auto=format&fit=crop"
+      return "/images/products/default-product.jpg"
   }
 }
 
@@ -108,7 +116,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className="relative">
         <div className="aspect-square overflow-hidden">
           <Image
-            src={productImage || "/placeholder.svg"}
+            src={productImage || "/images/products/default-product.jpg"}
             alt={product.name}
             width={400}
             height={400}

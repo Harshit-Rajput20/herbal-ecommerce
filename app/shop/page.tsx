@@ -3,7 +3,9 @@ import ProductCard from "@/components/product-card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
-// Sample products to use if database is empty
+export const dynamic = "force-dynamic"
+
+// Sample products to use if database is empty - with local images
 const sampleProducts = [
   {
     id: "1",
@@ -13,7 +15,7 @@ const sampleProducts = [
     featured: true,
     sale: true,
     discount: 15,
-    image_url: "https://images.unsplash.com/photo-1577086664693-894d8405334a?q=80&w=500&auto=format&fit=crop",
+    image_url: "/images/products/ashwagandha.jpg",
   },
   {
     id: "2",
@@ -21,7 +23,7 @@ const sampleProducts = [
     price: 12.99,
     category: "Tea",
     featured: true,
-    image_url: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?q=80&w=500&auto=format&fit=crop",
+    image_url: "/images/products/tulsi-tea.jpg",
   },
   {
     id: "3",
@@ -30,7 +32,7 @@ const sampleProducts = [
     category: "Skincare",
     featured: true,
     new: true,
-    image_url: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=500&auto=format&fit=crop",
+    image_url: "/images/products/face-wash.jpg",
   },
   {
     id: "4",
@@ -40,14 +42,14 @@ const sampleProducts = [
     featured: true,
     sale: true,
     discount: 10,
-    image_url: "https://images.unsplash.com/photo-1559149251-e9a1dc89f549?q=80&w=500&auto=format&fit=crop",
+    image_url: "/images/products/heart-health-drops.jpg",
   },
   {
     id: "5",
     name: "Aloe Vera Gel",
     price: 15.99,
     category: "Skincare",
-    image_url: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=500&auto=format&fit=crop",
+    image_url: "/images/products/aloe-vera.jpg",
   },
   {
     id: "6",
@@ -55,14 +57,14 @@ const sampleProducts = [
     price: 19.99,
     category: "Supplements",
     new: true,
-    image_url: "https://images.unsplash.com/photo-1577086664693-894d8405334a?q=80&w=500&auto=format&fit=crop",
+    image_url: "/images/products/moringa.jpg",
   },
   {
     id: "7",
     name: "Chamomile Tea",
     price: 9.99,
     category: "Tea",
-    image_url: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?q=80&w=500&auto=format&fit=crop",
+    image_url: "/images/products/chamomile-tea.jpg",
   },
   {
     id: "8",
@@ -71,14 +73,14 @@ const sampleProducts = [
     category: "Haircare",
     sale: true,
     discount: 5,
-    image_url: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?q=80&w=500&auto=format&fit=crop",
+    image_url: "/images/products/brahmi-oil.jpg",
   },
   {
     id: "9",
     name: "Liver Care Tablets",
     price: 21.99,
     category: "Tablets",
-    image_url: "https://images.unsplash.com/photo-1626963781637-1866da275ec4?q=80&w=500&auto=format&fit=crop",
+    image_url: "/images/products/liver-care-tablets.jpg",
   },
   {
     id: "10",
@@ -86,14 +88,14 @@ const sampleProducts = [
     price: 14.99,
     category: "Oils",
     new: true,
-    image_url: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?q=80&w=500&auto=format&fit=crop",
+    image_url: "/images/products/lavender-oil.jpg",
   },
   {
     id: "11",
     name: "Ginger Tea",
     price: 11.99,
     category: "Tea",
-    image_url: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?q=80&w=500&auto=format&fit=crop",
+    image_url: "/images/products/ginger-tea.jpg",
   },
   {
     id: "12",
@@ -102,14 +104,14 @@ const sampleProducts = [
     category: "Supplements",
     sale: true,
     discount: 8,
-    image_url: "https://images.unsplash.com/photo-1577086664693-894d8405334a?q=80&w=500&auto=format&fit=crop",
+    image_url: "/images/products/womens-health-supplement.jpg",
   },
   {
     id: "13",
     name: "Rosemary Essential Oil",
     price: 16.99,
     category: "Oils",
-    image_url: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?q=80&w=500&auto=format&fit=crop",
+    image_url: "/images/products/rosemary-oil.jpg",
   },
   {
     id: "14",
@@ -117,14 +119,14 @@ const sampleProducts = [
     price: 14.99,
     category: "Supplements",
     new: true,
-    image_url: "https://images.unsplash.com/photo-1577086664693-894d8405334a?q=80&w=500&auto=format&fit=crop",
+    image_url: "/images/products/amla-powder.jpg",
   },
   {
     id: "15",
     name: "Herbal Face Mask",
     price: 19.99,
     category: "Skincare",
-    image_url: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=500&auto=format&fit=crop",
+    image_url: "/images/products/face-mask.jpg",
   },
   {
     id: "16",
@@ -133,7 +135,7 @@ const sampleProducts = [
     category: "Tea",
     sale: true,
     discount: 10,
-    image_url: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?q=80&w=500&auto=format&fit=crop",
+    image_url: "/images/products/peppermint-tea.jpg",
   },
 ]
 
@@ -142,9 +144,10 @@ export default async function ShopPage({
 }: {
   searchParams?: { category?: string; page?: string }
 }) {
-  const supabase = await createServerSupabaseClient()
-  const category = searchParams?.category
-  const page = Number.parseInt(searchParams?.page || "1")
+  // Fix: Properly handle searchParams
+  const category = searchParams ? searchParams.category : undefined
+  const pageStr = searchParams ? searchParams.page : "1"
+  const page = Number.parseInt(pageStr || "1")
   const pageSize = 12
   const offset = (page - 1) * pageSize
 
@@ -152,8 +155,11 @@ export default async function ShopPage({
   let products = []
   let count = 0
   let error = null
+  let uniqueCategories = []
 
   try {
+    const supabase = await createServerSupabaseClient()
+
     // Build query
     let query = supabase.from("products").select("*", { count: "exact" })
 
@@ -175,8 +181,28 @@ export default async function ShopPage({
       products = response.data || []
       count = response.count || 0
     }
+
+    // Get all categories for filter
+    try {
+      const { data: categories } = await supabase
+        .from("products")
+        .select("category")
+        .not("category", "is", null)
+        .order("category")
+
+      // Extract unique categories
+      if (categories && categories.length > 0) {
+        uniqueCategories = Array.from(new Set(categories.map((item) => item.category).filter(Boolean)))
+      } else {
+        // Use sample categories if none in database
+        uniqueCategories = Array.from(new Set(sampleProducts.map((p) => p.category)))
+      }
+    } catch (err) {
+      console.error("Error fetching categories:", err)
+      uniqueCategories = Array.from(new Set(sampleProducts.map((p) => p.category)))
+    }
   } catch (err) {
-    console.error("Unexpected error fetching products:", err)
+    console.error("Unexpected error:", err)
     error = err
   }
 
@@ -191,26 +217,6 @@ export default async function ShopPage({
 
     count = products.length
     products = products.slice(offset, offset + pageSize)
-  }
-
-  // Get all categories for filter
-  let uniqueCategories = []
-  try {
-    const { data: categories } = await supabase
-      .from("products")
-      .select("category")
-      .not("category", "is", null)
-      .order("category")
-
-    // Extract unique categories
-    if (categories && categories.length > 0) {
-      uniqueCategories = Array.from(new Set(categories.map((item) => item.category).filter(Boolean)))
-    } else {
-      // Use sample categories if none in database
-      uniqueCategories = Array.from(new Set(sampleProducts.map((p) => p.category)))
-    }
-  } catch (err) {
-    console.error("Error fetching categories:", err)
     uniqueCategories = Array.from(new Set(sampleProducts.map((p) => p.category)))
   }
 

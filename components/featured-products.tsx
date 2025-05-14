@@ -24,7 +24,7 @@ interface FeaturedProductsProps {
 export default function FeaturedProducts({ products = [] }: FeaturedProductsProps) {
   const [isLoading, setIsLoading] = useState(false)
 
-  // Sample products if none are provided
+  // Sample products if none are provided - with local images
   const sampleProducts: Product[] = [
     {
       id: "1",
@@ -34,7 +34,7 @@ export default function FeaturedProducts({ products = [] }: FeaturedProductsProp
       featured: true,
       sale: true,
       discount: 15,
-      image_url: "https://images.unsplash.com/photo-1577086664693-894d8405334a?q=80&w=500&auto=format&fit=crop",
+      image_url: "/images/products/ashwagandha.jpg",
     },
     {
       id: "2",
@@ -42,7 +42,7 @@ export default function FeaturedProducts({ products = [] }: FeaturedProductsProp
       price: 12.99,
       category: "Tea",
       featured: true,
-      image_url: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?q=80&w=500&auto=format&fit=crop",
+      image_url: "/images/products/tulsi-tea.jpg",
     },
     {
       id: "3",
@@ -51,7 +51,7 @@ export default function FeaturedProducts({ products = [] }: FeaturedProductsProp
       category: "Skincare",
       featured: true,
       new: true,
-      image_url: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=500&auto=format&fit=crop",
+      image_url: "/images/products/face-wash.jpg",
     },
     {
       id: "4",
@@ -61,7 +61,7 @@ export default function FeaturedProducts({ products = [] }: FeaturedProductsProp
       featured: true,
       sale: true,
       discount: 10,
-      image_url: "https://images.unsplash.com/photo-1559149251-e9a1dc89f549?q=80&w=500&auto=format&fit=crop",
+      image_url: "/images/products/heart-health-drops.jpg",
     },
     {
       id: "5",
@@ -69,7 +69,7 @@ export default function FeaturedProducts({ products = [] }: FeaturedProductsProp
       price: 15.99,
       category: "Skincare",
       featured: true,
-      image_url: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=500&auto=format&fit=crop",
+      image_url: "/images/products/aloe-vera.jpg",
     },
     {
       id: "6",
@@ -78,7 +78,7 @@ export default function FeaturedProducts({ products = [] }: FeaturedProductsProp
       category: "Supplements",
       featured: true,
       new: true,
-      image_url: "https://images.unsplash.com/photo-1577086664693-894d8405334a?q=80&w=500&auto=format&fit=crop",
+      image_url: "/images/products/moringa.jpg",
     },
     {
       id: "7",
@@ -86,7 +86,7 @@ export default function FeaturedProducts({ products = [] }: FeaturedProductsProp
       price: 9.99,
       category: "Tea",
       featured: true,
-      image_url: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?q=80&w=500&auto=format&fit=crop",
+      image_url: "/images/products/chamomile-tea.jpg",
     },
     {
       id: "8",
@@ -96,7 +96,7 @@ export default function FeaturedProducts({ products = [] }: FeaturedProductsProp
       featured: true,
       sale: true,
       discount: 5,
-      image_url: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?q=80&w=500&auto=format&fit=crop",
+      image_url: "/images/products/brahmi-oil.jpg",
     },
   ]
 

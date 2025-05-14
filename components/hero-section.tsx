@@ -36,11 +36,11 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Image - slightly smaller for reduced height */}
+          {/* Image - using local image */}
           <div className="relative flex justify-center lg:justify-end">
             <div className="relative w-[75%] md:w-[65%] lg:w-[85%] aspect-square">
               <Image
-                src="https://plus.unsplash.com/premium_photo-1678382344064-ea62356b9f18?q=80&w=1000&auto=format&fit=crop"
+                src="/images/hero-herbs.jpg"
                 alt="Bio-Onn Herbal Care products"
                 fill
                 className="object-cover rounded-full"

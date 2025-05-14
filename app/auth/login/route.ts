@@ -1,6 +1,7 @@
 import { createServerSupabaseClient } from "@/lib/supabase/server"
 import { NextResponse } from "next/server"
 
+export const dynamic = "force-dynamic"
 
 export async function GET(request: Request) {
   try {
@@ -32,5 +33,3 @@ export async function GET(request: Request) {
     return NextResponse.redirect(`${new URL(request.url).origin}/login?error=An unexpected error occurred`)
   }
 }
-
-export const dynamic = 'force-dynamic';

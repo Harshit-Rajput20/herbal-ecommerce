@@ -2,41 +2,73 @@
 
 import { useState, useEffect } from "react"
 import { supabase } from "@/lib/supabase/client"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { toast } from "sonner"
+import ProductCard from "@/components/product-card"
 
-interface Product {
-  id: string
-  name: string
-  description: string
-  price: number
-  image_url?: string
-  category?: string
-}
+// Sample products to use if database is empty
+const sampleProducts = [
+  {
+    id: "1",
+    name: "Ashwagandha Root Powder",
+    price: 24.99,
+    category: "Supplements",
+    featured: true,
+    sale: true,
+    discount: 15,
+    image_url: "https://images.unsplash.com/photo-1577086664693-894d8405334a?q=80&w=500&auto=format&fit=crop",
+  },
+  {
+    id: "2",
+    name: "Tulsi Tea",
+    price: 12.99,
+    category: "Tea",
+    featured: true,
+    image_url: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?q=80&w=500&auto=format&fit=crop",
+  },
+  {
+    id: "3",
+    name: "Aqua Face Wash",
+    price: 14.99,
+    category: "Skincare",
+    featured: true,
+    new: true,
+    image_url: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=500&auto=format&fit=crop",
+  },
+  {
+    id: "4",
+    name: "Heart Health Drops",
+    price: 27.99,
+    category: "Drops",
+    featured: true,
+    sale: true,
+    discount: 10,
+    image_url: "https://images.unsplash.com/photo-1559149251-e9a1dc89f549?q=80&w=500&auto=format&fit=crop",
+  },
+]
 
 export default function ProductList() {
-  const [products, setProducts] = useState<Product[]>([])
+  const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     async function fetchProducts() {
       try {
         setLoading(true)
-        setError(null)
-
-        const { data, error } = await supabase.from("products").select("*").order("name").limit(10)
+        const { data, error } = await supabase.from("products").select("*").limit(4)
 
         if (error) {
           throw error
         }
 
-        setProducts(data || [])
-      } catch (err: any) {
-        console.error("Error fetching products:", err)
-        setError(err.message || "Failed to fetch products")
-        toast.error("Failed to load products")
+        if (data && data.length > 0) {
+          setProducts(data)
+        } else {
+          // Use sample products if none in database
+          setProducts(sampleProducts)
+        }
+      } catch (error) {
+        console.error("Error fetching products:", error)
+        // Use sample products on error
+        setProducts(sampleProducts)
       } finally {
         setLoading(false)
       }
@@ -47,83 +79,22 @@ export default function ProductList() {
 
   if (loading) {
     return (
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Our Products</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {[1, 2, 3].map((i) => (
-            <Card key={i} className="animate-pulse">
-              <CardContent className="p-4">
-                <div className="h-40 bg-gray-200 dark:bg-gray-800 rounded-md mb-4"></div>
-                <div className="h-6 bg-gray-200 dark:bg-gray-800 rounded-md mb-2 w-3/4"></div>
-                <div className="h-4 bg-gray-200 dark:bg-gray-800 rounded-md w-1/2"></div>
-              </CardContent>
-            </Card>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {Array(4)
+          .fill(0)
+          .map((_, index) => (
+            <div key={index} className="h-[400px] rounded-lg bg-gray-200 animate-pulse dark:bg-gray-800"></div>
           ))}
-        </div>
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Our Products</h2>
-        <Card className="bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800">
-          <CardContent className="p-4">
-            <p className="text-red-600 dark:text-red-400">Error: {error}</p>
-            <Button variant="outline" className="mt-4" onClick={() => window.location.reload()}>
-              Try Again
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
-    )
-  }
-
-  if (products.length === 0) {
-    return (
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Our Products</h2>
-        <Card>
-          <CardContent className="p-4 text-center">
-            <p className="text-muted-foreground">No products found. Please check back later.</p>
-          </CardContent>
-        </Card>
       </div>
     )
   }
 
   return (
-    <div className="space-y-4">
-      <h2 className="text-2xl font-bold">Our Products</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div>
+      <h2 className="text-2xl font-bold mb-6">Sample Products</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
-          <Card key={product.id}>
-            <CardContent className="p-4">
-              <div className="aspect-square relative mb-4 bg-gray-100 dark:bg-gray-800 rounded-md overflow-hidden">
-                {product.image_url ? (
-                  <img
-                    src={product.image_url || "/placeholder.svg"}
-                    alt={product.name}
-                    className="object-cover w-full h-full"
-                    onError={(e) => {
-                      e.currentTarget.src = "/herbal-product.png"
-                    }}
-                  />
-                ) : (
-                  <div className="flex items-center justify-center h-full text-muted-foreground">
-                    No image available
-                  </div>
-                )}
-              </div>
-              <h3 className="font-medium mb-1">{product.name}</h3>
-              <p className="text-sm text-muted-foreground mb-2">{product.category || "Herbal Product"}</p>
-              <div className="flex justify-between items-center">
-                <span className="font-bold">${product.price.toFixed(2)}</span>
-                <Button size="sm">Add to Cart</Button>
-              </div>
-            </CardContent>
-          </Card>
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>

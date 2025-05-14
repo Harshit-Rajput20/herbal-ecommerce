@@ -6,25 +6,25 @@ const categories = [
   {
     name: "Herbal Teas",
     description: "Soothing blends for relaxation and wellness",
-    image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/categories/herbal-tea.jpg",
     link: "/shop?category=tea",
   },
   {
     name: "Supplements",
     description: "Natural supplements for daily health",
-    image: "https://images.unsplash.com/photo-1577086664693-894d8405334a?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/categories/supplements.jpg",
     link: "/shop?category=supplements",
   },
   {
     name: "Skincare",
     description: "Plant-based solutions for healthy skin",
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/categories/skincare.jpg",
     link: "/shop?category=skincare",
   },
   {
     name: "Essential Oils",
     description: "Pure extracts for aromatherapy",
-    image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/categories/essential-oils.jpg",
     link: "/shop?category=oils",
   },
 ]
@@ -49,7 +49,7 @@ export default function CategorySection() {
               <Card className="overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1">
                 <div className="aspect-square overflow-hidden">
                   <Image
-                    src={category.image || "/placeholder.svg"}
+                    src={category.image || "/images/products/default-product.jpg"}
                     alt={category.name}
                     width={400}
                     height={400}

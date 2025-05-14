@@ -1,4 +1,3 @@
-import { createServerSupabaseClient } from "@/lib/supabase/server"
 import AnnouncementBanner from "@/components/announcement-banner"
 import HeroSection from "@/components/hero-section"
 import FeaturedProducts from "@/components/featured-products"
@@ -7,6 +6,10 @@ import TestimonialSection from "@/components/testimonial-section"
 import NewsletterSection from "@/components/newsletter-section"
 import WelcomePopupWrapper from "@/components/welcome-popup-wrapper"
 import ExitIntentPopupWrapper from "@/components/exit-intent-popup-wrapper"
+import { createServerSupabaseClient } from "@/lib/supabase/server"
+
+// Add dynamic rendering configuration
+export const dynamic = "force-dynamic"
 
 // Sample products to use if database is empty
 const sampleProducts = [
@@ -85,24 +88,29 @@ const sampleProducts = [
 ]
 
 export default async function Home() {
-  const supabase = await createServerSupabaseClient()
-
-  // Fetch featured products with error handling
   let featuredProducts = []
-  try {
-    const { data, error } = await supabase
-      .from("products")
-      .select("*")
-      .eq("featured", true)
-      .order("id", { ascending: true })
 
-    if (error) {
-      console.error("Error fetching featured products:", error)
-    } else {
-      featuredProducts = data || []
+  try {
+    const supabase = await createServerSupabaseClient()
+
+    // Fetch featured products with error handling
+    try {
+      const { data, error } = await supabase
+        .from("products")
+        .select("*")
+        .eq("featured", true)
+        .order("id", { ascending: true })
+
+      if (error) {
+        console.error("Error fetching featured products:", error)
+      } else {
+        featuredProducts = data || []
+      }
+    } catch (error) {
+      console.error("Unexpected error fetching featured products:", error)
     }
   } catch (error) {
-    console.error("Unexpected error fetching featured products:", error)
+    console.error("Error creating Supabase client:", error)
   }
 
   // If no featured products, use sample products

@@ -8,7 +8,7 @@ const testimonials = [
     role: "Wellness Enthusiast",
     content:
       "I've been using Bio-Onn's herbal teas for months now, and they've made a noticeable difference in my sleep quality and overall well-being.",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
+    avatar: "/images/avatars/avatar-1.jpg",
     initials: "SJ",
     rating: 5,
     product: "Herbal Sleep Tea",
@@ -18,7 +18,7 @@ const testimonials = [
     role: "Fitness Trainer",
     content:
       "As someone who values natural supplements, I'm impressed with the quality and effectiveness of Bio-Onn's products. My clients love them too!",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
+    avatar: "/images/avatars/avatar-2.jpg",
     initials: "MC",
     rating: 5,
     product: "Ashwagandha Supplements",
@@ -28,7 +28,7 @@ const testimonials = [
     role: "Yoga Instructor",
     content:
       "Bio-Onn's herbal remedies have become an essential part of my daily routine. The quality is unmatched, and I love supporting a company that prioritizes sustainability.",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop",
+    avatar: "/images/avatars/avatar-3.jpg",
     initials: "ER",
     rating: 5,
     product: "Turmeric Capsules",
@@ -78,7 +78,10 @@ export default function TestimonialSection() {
                 </div>
                 <div className="flex items-center space-x-4 pt-4 border-t">
                   <Avatar>
-                    <AvatarImage src={testimonial.avatar || "/placeholder.svg"} alt={testimonial.name} />
+                    <AvatarImage
+                      src={testimonial.avatar || "/images/products/default-product.jpg"}
+                      alt={testimonial.name}
+                    />
                     <AvatarFallback className="bg-brand-green-100 text-brand-green-700">
                       {testimonial.initials}
                     </AvatarFallback>
