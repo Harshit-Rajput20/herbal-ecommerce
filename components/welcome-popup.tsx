@@ -43,7 +43,7 @@ export default function WelcomePopup() {
 
         <div className="grid gap-6 py-4 md:grid-cols-2">
           <div className="relative h-48 md:h-full rounded-md overflow-hidden">
-            <Image src="/images/popup-herbs.jpg" alt="Bio-Onn Herbal Products" fill className="object-cover" />
+            <Image src="/images/generic-herbal.png" alt="Bio-Onn Herbal Products" fill className="object-cover" />
           </div>
 
           <div className="space-y-4">
