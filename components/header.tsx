@@ -50,11 +50,14 @@ export default function Header() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center" onClick={closeMenu}>
               <div className="h-10 w-auto">
-                <img
-                  src="images/logos/design png.png"
-                  alt="Bio-Onn"
-                  className="h-full object-contain"
-                />
+              <div className="h-10 w-auto">
+  <img
+    src="/images/logos/design-png.png"  // Removed space in filename
+    alt="Bio-Onn"
+    className="h-full w-auto object-contain"  // Added w-auto for proper scaling
+    style={{ height: '50px' }}  // Fixed style prop syntax
+  />
+</div>
               </div>
             </Link>
           </div>
