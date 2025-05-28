@@ -42,7 +42,7 @@ const sampleProducts = [
     featured: true,
     sale: true,
     discount: 10,
-    image_url: "/images/products/heart-health-drops.jpg",
+    image_url: "/images/products/heart-health-drops.avif",
   },
   {
     id: "5",
@@ -80,7 +80,7 @@ const sampleProducts = [
     name: "Liver Care Tablets",
     price: 21.99,
     category: "Tablets",
-    image_url: "/images/products/liver-care-tablets.jpg",
+    image_url: "/images/products/liver-care-tablets.avif",
   },
   {
     id: "10",

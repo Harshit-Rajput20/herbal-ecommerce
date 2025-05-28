@@ -36,11 +36,11 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Image - using local image */}
+          {/* Image - using local image with correct path */}
           <div className="relative flex justify-center lg:justify-end">
             <div className="relative w-[75%] md:w-[65%] lg:w-[85%] aspect-square">
               <Image
-                src="/images/hero-herbs.jpg"
+                src="/images/hero-herbs.avif"
                 alt="Bio-Onn Herbal Care products"
                 fill
                 className="object-cover rounded-full"

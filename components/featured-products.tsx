@@ -61,7 +61,7 @@ export default function FeaturedProducts({ products = [] }: FeaturedProductsProp
       featured: true,
       sale: true,
       discount: 10,
-      image_url: "/images/products/heart-health-drops.jpg",
+      image_url: "/images/products/heart-health-drops.avif",
     },
     {
       id: "5",

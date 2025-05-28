@@ -29,27 +29,76 @@ interface ProductCardProps {
 
 // Function to get placeholder image based on category - using local images
 const getCategoryImage = (category = "", productName = "") => {
-  const normalizedCategory = category.toLowerCase()
+  const normalizedCategory = category?.toLowerCase() || ""
+  const normalizedProductName = productName?.toLowerCase() || ""
 
   // Product-specific images for common products
-  if (productName.toLowerCase().includes("heart health drops")) {
-    return "/images/products/heart-health-drops.jpg"
+  if (normalizedProductName.includes("heart health drops")) {
+    return "/images/products/heart-health-drops.avif"
   }
 
-  if (productName.toLowerCase().includes("liver care")) {
-    return "/images/products/liver-care-tablets.jpg"
+  if (normalizedProductName.includes("liver care")) {
+    return "/images/products/liver-care-tablets.avif"
   }
 
-  if (productName.toLowerCase().includes("women's health")) {
+  if (normalizedProductName.includes("women's health")) {
     return "/images/products/womens-health-supplement.jpg"
   }
 
-  if (productName.toLowerCase().includes("face wash")) {
+  if (normalizedProductName.includes("face wash")) {
     return "/images/products/face-wash.jpg"
   }
 
-  if (productName.toLowerCase().includes("herbal tea premix")) {
+  if (normalizedProductName.includes("herbal tea premix")) {
     return "/images/products/herbal-tea-premix.jpg"
+  }
+
+  if (normalizedProductName.includes("ashwagandha")) {
+    return "/images/products/ashwagandha.jpg"
+  }
+
+  if (normalizedProductName.includes("tulsi")) {
+    return "/images/products/tulsi-tea.jpg"
+  }
+
+  if (normalizedProductName.includes("aloe vera")) {
+    return "/images/products/aloe-vera.jpg"
+  }
+
+  if (normalizedProductName.includes("moringa")) {
+    return "/images/products/moringa.jpg"
+  }
+
+  if (normalizedProductName.includes("chamomile")) {
+    return "/images/products/chamomile-tea.jpg"
+  }
+
+  if (normalizedProductName.includes("brahmi")) {
+    return "/images/products/brahmi-oil.jpg"
+  }
+
+  if (normalizedProductName.includes("lavender")) {
+    return "/images/products/lavender-oil.jpg"
+  }
+
+  if (normalizedProductName.includes("ginger")) {
+    return "/images/products/ginger-tea.jpg"
+  }
+
+  if (normalizedProductName.includes("rosemary")) {
+    return "/images/products/rosemary-oil.jpg"
+  }
+
+  if (normalizedProductName.includes("amla")) {
+    return "/images/products/amla-powder.jpg"
+  }
+
+  if (normalizedProductName.includes("face mask")) {
+    return "/images/products/face-mask.jpg"
+  }
+
+  if (normalizedProductName.includes("peppermint")) {
+    return "/images/products/peppermint-tea.jpg"
   }
 
   // Use local image paths based on category
