@@ -51,7 +51,7 @@ export default function Header() {
             <Link href="/" className="flex items-center" onClick={closeMenu}>
               <div className="h-10 w-auto">
                 <img
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-AJK4xZuySzmTW7duk6QHHhfearbPYh.png"
+                  src="images/logos/design png.png"
                   alt="Bio-Onn"
                   className="h-full object-contain"
                 />
